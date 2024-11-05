@@ -6,17 +6,18 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 public class Enemy : MonoBehaviour
 {
     public int health;
-    public GameObject destroyEffect;
-    public GameObject bloodSplash;
+    private Animator animator;
 
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     void Update()
     {
         if (health <= 0)
         {
-            Instantiate(destroyEffect, transform.position, Quaternion.identity);
-            Instantiate(bloodSplash, transform.position, Quaternion.identity);
-            Destroy(gameObject);
+            Die();
         }
 
     }
@@ -24,6 +25,22 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
+    }
+
+    void Die()
+    {
+        animator.SetBool("Dead", true);
+        // Запускаем корутину для удаления объекта после завершения анимации
+        StartCoroutine(HandleDeath());
+    }
+
+    private IEnumerator HandleDeath()
+    {
+        // Ждем завершения анимации смерти
+        // Предполагаем, что анимация смерти длится 2 секунды
+        // Вы можете заменить 2.0f на длительность вашей анимации
+        yield return new WaitForSeconds(1.0f);
+        Destroy(gameObject);
     }
 }
 

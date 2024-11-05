@@ -1,7 +1,5 @@
 using UnityEngine;
 
-
-
 public class Bullet : MonoBehaviour
 {
     public int damage;
@@ -11,6 +9,12 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.CompareTag("TileMap"))
         {
             Destroy(gameObject); 
+        }
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+            enemy.TakeDamage(damage);
+            Destroy(gameObject);
         }
     }
 }

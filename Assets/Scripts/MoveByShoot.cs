@@ -46,8 +46,6 @@ public class MoveByShoot : MonoBehaviour
         Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
         bulletRb.velocity = shootDirection * bulletSpeed; // Двигаем пулю в направлении мыши
 
-        // Уничтожаем пулю через некоторое время
-        //Destroy(bullet, 2f); // Увеличьте время жизни пули при необходимости
 
         // Применяем отдачу
         float recoilMultiplier = 3f; // Вы можете настроить этот множитель для изменения силы отдачи
