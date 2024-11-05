@@ -47,8 +47,7 @@ public class MoveByShoot : MonoBehaviour
         bulletRb.velocity = shootDirection * bulletSpeed; // Двигаем пулю в направлении мыши
 
 
-        // Применяем отдачу
-        float recoilMultiplier = 3f; // Вы можете настроить этот множитель для изменения силы отдачи
+        float recoilMultiplier = 3f;
 
         Vector2 recoilForce2 = -shootDirection * recoilForce * recoilMultiplier; // Рассчитываем силу отдачи
         // Устанавливаем новую скорость для Rigidbody персонажа

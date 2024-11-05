@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 5336056327939109274}
   - component: {fileID: 1090501440417387593}
   - component: {fileID: 4239361259657553843}
-  - component: {fileID: 8144876346644787856}
   - component: {fileID: 7489313233243587403}
+  - component: {fileID: -9048598863145981722}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -146,7 +146,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.10884118, y: -0.20807886}
+  m_Offset: {x: 0.11050472, y: -0.21299541}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -156,9 +156,23 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.0069118, y: 0.8529482}
+  m_Size: {x: 0.9281487, y: 0.8431151}
   m_EdgeRadius: 0
---- !u!50 &8144876346644787856
+--- !u!114 &7489313233243587403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6695400872626775194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a3b079dae346a742ab7650be117509e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 2
+  damageToPlayer: 1
+--- !u!50 &-9048598863145981722
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -185,16 +199,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &7489313233243587403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6695400872626775194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a3b079dae346a742ab7650be117509e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 2

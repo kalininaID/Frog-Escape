@@ -7,10 +7,15 @@ public class Enemy : MonoBehaviour
 {
     public int health;
     private Animator animator;
+    private bool isHit; // Флаг для отслеживания состояния получения урона
+    private Player player;
+    public int damageToPlayer = 1;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
+        isHit = false; // Изначально не получал урон
+        player = FindObjectOfType<Player>();
     }
 
     void Update()
@@ -19,28 +24,51 @@ public class Enemy : MonoBehaviour
         {
             Die();
         }
+    }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("OnCollisionEnter вызван");
     }
 
     public void TakeDamage(int damage)
     {
-        health -= damage;
+        if (!isHit) // Проверяем, не получал ли уже урон
+        {
+            isHit = true; // Устанавливаем флаг
+            animator.SetBool("isHit", true);
+            health -= damage;
+
+            StartCoroutine(ResetHitAnimation()); // Запускаем корутину для сброса анимации
+        }
     }
 
     void Die()
     {
         animator.SetBool("Dead", true);
-        // Запускаем корутину для удаления объекта после завершения анимации
         StartCoroutine(HandleDeath());
     }
 
     private IEnumerator HandleDeath()
     {
-        // Ждем завершения анимации смерти
-        // Предполагаем, что анимация смерти длится 2 секунды
-        // Вы можете заменить 2.0f на длительность вашей анимации
         yield return new WaitForSeconds(1.0f);
         Destroy(gameObject);
+    }
+
+    private IEnumerator ResetHitAnimation()
+    {
+        yield return new WaitForSeconds(1f);
+        animator.SetBool("isHit", false);
+        isHit = false; // Сбрасываем флаг
+    }
+
+    public void AttackPlayer()
+    {
+        if (player != null)
+        {
+            player.TakeDamage(damageToPlayer); // Наносим урон игроку
+            Debug.Log("Player took damage: " + damageToPlayer);
+        }
     }
 }
 
