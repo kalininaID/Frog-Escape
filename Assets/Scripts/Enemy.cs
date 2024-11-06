@@ -9,7 +9,8 @@ public class Enemy : MonoBehaviour
     private Player player;
 
     public int health;
-    private bool isHit; // Флаг для отслеживания состояния получения урона
+    private bool isHit;
+    private bool isDead;
     
     public int damageToPlayer = 1;
     public float attackCooldown = 1f; // Время между атаками
@@ -25,6 +26,7 @@ public class Enemy : MonoBehaviour
     {
         if (health <= 0)
         {
+            isDead = true;
             Die();
         }
     }
@@ -80,7 +82,7 @@ public class Enemy : MonoBehaviour
         if (collision.collider.CompareTag("Player") && canAttack)
         {
             Player player = collision.collider.GetComponent<Player>();
-            if (player != null)
+            if (player != null && !isDead)
             {
                 Attack(player);
             }

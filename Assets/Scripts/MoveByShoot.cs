@@ -44,7 +44,7 @@ public class MoveByShoot : MonoBehaviour
         bulletRb.velocity = shootDirection * bulletSpeed; // Двигаем пулю в направлении мыши
 
 
-        float recoilMultiplier = 3f;
+        float recoilMultiplier = 2f;
 
         Vector2 recoilForce2 = -shootDirection * recoilForce * recoilMultiplier;
         // Устанавливаем новую скорость для Rigidbody персонажа

@@ -12,10 +12,6 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         levelUnlock = PlayerPrefs.GetInt("levels", 1);
-        levelUnlock = PlayerPrefs.GetInt("levels", 2);
-        levelUnlock = PlayerPrefs.GetInt("levels", 3);
-        levelUnlock = PlayerPrefs.GetInt("levels", 4);
-        levelUnlock = PlayerPrefs.GetInt("levels", 5);
 
 
         for (int i = 0; i < button.Length; i++) 

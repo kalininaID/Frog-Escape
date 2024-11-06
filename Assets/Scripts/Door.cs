@@ -1,9 +1,13 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class DoorController : MonoBehaviour
 {
     private Animator animator;
-    private bool isOpen = false; // Состояние двери
+    private bool isOpen = false;
 
     private void Start()
     {
@@ -12,16 +16,14 @@ public class DoorController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Проверяем, является ли объект игроком
         if (other.CompareTag("Player") && !isOpen)
         {
-            OpenDoor();
+            StartCoroutine(OpenDoorAndLoadScene());
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        // Проверяем, является ли объект игроком
         if (other.CompareTag("Player") && isOpen)
         {
             CloseDoor();
@@ -30,13 +32,26 @@ public class DoorController : MonoBehaviour
 
     private void OpenDoor()
     {
-        animator.SetTrigger("Open"); // Запускаем анимацию открытия
-        isOpen = true; // Устанавливаем состояние двери как открытое
+        animator.SetTrigger("Open");
+        isOpen = true;
     }
 
     private void CloseDoor()
     {
-        animator.SetTrigger("Close"); // Запускаем анимацию закрытия
-        isOpen = false; // Устанавливаем состояние двери как закрытое
+        animator.SetTrigger("Close");
+        isOpen = false;
     }
+
+    private IEnumerator OpenDoorAndLoadScene()
+    {
+        OpenDoor();
+        yield return new WaitForSeconds(1.5f);
+
+        GoToNextLVL goToNextLVL = gameObject.AddComponent<GoToNextLVL>();
+        goToNextLVL.UnlockLevel();
+    }
+
+
+    
+
 }

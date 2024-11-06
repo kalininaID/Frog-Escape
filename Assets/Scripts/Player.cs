@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public GemsManager gemsManager;
     public HealthManager healthManager;
 
+
     [Header("Player Animation Srttings")]
     public Animator animator;
 
@@ -35,19 +36,15 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
-        Debug.Log("Персонаж погиб!");
-        // - воспроизведение анимации смерти
-        // - отключение управления
-        // - перезагрузка уровня и т.д.
+        GoToNextLVL goToNextLVL = gameObject.AddComponent<GoToNextLVL>();
+        goToNextLVL.FailCurrentLvl();
 
         Destroy(gameObject);
     }
 
     private IEnumerator ResetHitAnimation()
     {
-        // Ждем некоторое время, чтобы анимация успела проиграться
-        yield return new WaitForSeconds(0.5f); // Замените 0.5 на нужное время
-
+        yield return new WaitForSeconds(0.5f);
         animator.SetBool("isHit", false);
     }
 
