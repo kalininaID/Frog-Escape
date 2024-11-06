@@ -9,6 +9,7 @@ TagManager:
   - Gems
   - Items
   - Health
+  - Key
   layers:
   - Default
   - TransparentFX

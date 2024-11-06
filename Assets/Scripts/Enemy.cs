@@ -13,13 +13,13 @@ public class Enemy : MonoBehaviour
     private bool isDead;
     
     public int damageToPlayer = 1;
-    public float attackCooldown = 1f; // ¬рем€ между атаками
-    private bool canAttack = true; // ‘лаг, позвол€ющий атаковать
+    public float attackCooldown = 1f;
+    private bool canAttack = true;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
-        isHit = false; // »значально не получал урон
+        isHit = false;
     }
 
     void Update()
@@ -68,7 +68,7 @@ public class Enemy : MonoBehaviour
     private IEnumerator ResetHitAnimation()
     {
         yield return new WaitForSeconds(1f);
-        isHit = false; // —брасываем флаг
+        isHit = false;
     }
 
     private IEnumerator AttackCooldown()
