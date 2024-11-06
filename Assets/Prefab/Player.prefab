@@ -25,14 +25,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 486320514591035120}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.000012654344, w: 1}
-  m_LocalPosition: {x: 0.71, y: 0.013, z: -0.512304}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_LocalRotation: {x: -0, y: -0, z: 0.9263325, w: -0.37670696}
+  m_LocalPosition: {x: 0.58, y: 0.012999997, z: -0.512304}
+  m_LocalScale: {x: 0.616152, y: 0.616152, z: 0.616152}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7392382012754248711}
   m_Father: {fileID: 7555347914359787990}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.001}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -135.74}
 --- !u!212 &243965195038522673
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -6628414004274166170, guid: 2d37053ba8adb864aa8777c4966a2b27, type: 3}
+  m_Sprite: {fileID: 3380853543698474568, guid: a56cd79523733524fb728d9e10c8c4f1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -401,6 +401,7 @@ MonoBehaviour:
   maxHealth: 3
   gemsManager: {fileID: 0}
   healthManager: {fileID: 0}
+  hasKey: 0
   animator: {fileID: 3760441946036173321}
 --- !u!1 &6101658407497477745
 GameObject:
@@ -427,7 +428,7 @@ Transform:
   m_GameObject: {fileID: 6101658407497477745}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.37, y: 0.14, z: -4.497118}
+  m_LocalPosition: {x: -0.51, y: 0.59, z: -4.497118}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

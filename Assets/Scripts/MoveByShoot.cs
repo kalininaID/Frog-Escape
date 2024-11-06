@@ -51,6 +51,9 @@ public class MoveByShoot : MonoBehaviour
         rb.velocity = recoilForce2;
     }
 
-    
+    public void DisableMovement()
+    {
+        rb.velocity = Vector2.zero; // Обнуляем скорость
+    }
 
 }

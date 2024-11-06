@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 7002228151726397122}
   - component: {fileID: 2780184336211611231}
   - component: {fileID: -711615064842114203}
-  m_Layer: 0
+  - component: {fileID: 598788775486715739}
+  m_Layer: 6
   m_Name: DoorClose
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,7 +97,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.49751312, y: -0.51601124}
+  m_Offset: {x: -0.25304872, y: -0.51601124}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -106,8 +107,21 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.057505, y: 2.0181108}
+  m_Size: {x: 0.5685762, y: 2.0181108}
   m_EdgeRadius: 0
+--- !u!114 &598788775486715739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2578667719106178800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab2161262a7c06242b3c3bd8b350d5df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openDoorPrefab: {fileID: 2578667719106178800, guid: b3bec38bdbc668647a78ebe06a99129b, type: 3}
 --- !u!1 &5231605800778762817
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,7 +132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 653278565645191441}
   - component: {fileID: 8612937650107308315}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -204,7 +218,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2911494661535886138}
   - component: {fileID: 2959894912421403063}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}

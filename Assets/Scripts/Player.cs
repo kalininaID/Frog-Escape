@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public GemsManager gemsManager;
     public HealthManager healthManager;
 
+    public bool hasKey = false;
 
     [Header("Player Animation Srttings")]
     public Animator animator;
@@ -63,6 +64,12 @@ public class Player : MonoBehaviour
                 healthManager.healthCount++;
             }
             Destroy(other.gameObject);
+        }
+
+        if (other.gameObject.CompareTag("Key"))
+        {
+            Destroy(other.gameObject);
+            hasKey = true;
         }
     }
 }
