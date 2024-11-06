@@ -380,13 +380,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 2578667719106178800, guid: 5f6139a851336714b94ac7fc75b1e6d6, type: 3}
   shootPoint: {fileID: 7392382012754248711}
+  distance: 0
+  damage: 1
   bulletSpeed: 20
   recoilForce: 5
-  distance: 0
   layerMask:
     serializedVersion: 2
     m_Bits: 64
-  damage: 0
+  gm: {fileID: 0}
   animator: {fileID: 3760441946036173321}
 --- !u!114 &5102004082091450285
 MonoBehaviour:

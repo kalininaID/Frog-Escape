@@ -6,6 +6,9 @@ TagManager:
   tags:
   - TileMap
   - Enemy
+  - Gems
+  - Items
+  - Health
   layers:
   - Default
   - TransparentFX

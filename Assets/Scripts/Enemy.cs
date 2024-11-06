@@ -5,17 +5,20 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class Enemy : MonoBehaviour
 {
-    public int health;
     private Animator animator;
-    private bool isHit; // Флаг для отслеживания состояния получения урона
     private Player player;
+
+    public int health;
+    private bool isHit; // Флаг для отслеживания состояния получения урона
+    
     public int damageToPlayer = 1;
+    public float attackCooldown = 1f; // Время между атаками
+    private bool canAttack = true; // Флаг, позволяющий атаковать
 
     private void Start()
     {
         animator = GetComponent<Animator>();
         isHit = false; // Изначально не получал урон
-        player = FindObjectOfType<Player>();
     }
 
     void Update()
@@ -26,20 +29,16 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("OnCollisionEnter вызван");
-    }
-
     public void TakeDamage(int damage)
     {
-        if (!isHit) // Проверяем, не получал ли уже урон
+        if (!isHit) 
         {
-            isHit = true; // Устанавливаем флаг
-            animator.SetBool("isHit", true);
+            Debug.Log(123);
+            isHit = true;
+            animator.SetTrigger("isHit");
             health -= damage;
 
-            StartCoroutine(ResetHitAnimation()); // Запускаем корутину для сброса анимации
+            StartCoroutine(ResetHitAnimation()); 
         }
     }
 
@@ -48,6 +47,15 @@ public class Enemy : MonoBehaviour
         animator.SetBool("Dead", true);
         StartCoroutine(HandleDeath());
     }
+
+    private void Attack(Player player)
+    {
+        canAttack = false; 
+        animator.SetTrigger("Attack"); 
+        player.TakeDamage(damageToPlayer);
+        StartCoroutine(AttackCooldown());
+    }
+
 
     private IEnumerator HandleDeath()
     {
@@ -58,17 +66,26 @@ public class Enemy : MonoBehaviour
     private IEnumerator ResetHitAnimation()
     {
         yield return new WaitForSeconds(1f);
-        animator.SetBool("isHit", false);
         isHit = false; // Сбрасываем флаг
     }
 
-    public void AttackPlayer()
+    private IEnumerator AttackCooldown()
     {
-        if (player != null)
+        yield return new WaitForSeconds(attackCooldown);
+        canAttack = true;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Player") && canAttack)
         {
-            player.TakeDamage(damageToPlayer); // Наносим урон игроку
-            Debug.Log("Player took damage: " + damageToPlayer);
+            Player player = collision.collider.GetComponent<Player>();
+            if (player != null)
+            {
+                Attack(player);
+            }
         }
     }
+
 }
 

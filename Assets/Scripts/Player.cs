@@ -5,23 +5,25 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class Player : MonoBehaviour
 {
-    public int maxHealth = 3; // Максимальное здоровье
-    private int currentHealth; // Текущее здоровье
+    public int maxHealth = 3;
+
+    public GemsManager gemsManager;
+    public HealthManager healthManager;
 
     [Header("Player Animation Srttings")]
     public Animator animator;
 
     void Start()
     {
-        currentHealth = maxHealth;
+        healthManager.healthCount = maxHealth;
     }
 
     public void TakeDamage(int damage)
     {
         animator.SetBool("isHit", true);
-        currentHealth -= damage;
+        healthManager.healthCount -= damage;
 
-        if (currentHealth <= 0)
+        if (healthManager.healthCount <= 0)
         {
             Die();
         }
@@ -29,13 +31,11 @@ public class Player : MonoBehaviour
         {
             StartCoroutine(ResetHitAnimation());
         }
-        Debug.Log("Текущее здоровье: " + currentHealth);
     }
 
     private void Die()
     {
         Debug.Log("Персонаж погиб!");
-        // Здесь можно добавить логику для смерти персонажа, например:
         // - воспроизведение анимации смерти
         // - отключение управления
         // - перезагрузка уровня и т.д.
@@ -49,5 +49,23 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(0.5f); // Замените 0.5 на нужное время
 
         animator.SetBool("isHit", false);
+    }
+
+    private void OnTriggerEnter2D(UnityEngine.Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Gems"))
+        {
+            Destroy(other.gameObject);
+            gemsManager.gemCount++;
+        }
+
+        if (other.gameObject.CompareTag("Health"))
+        {
+            if (healthManager.healthCount < maxHealth) 
+            { 
+                healthManager.healthCount++;
+            }
+            Destroy(other.gameObject);
+        }
     }
 }
