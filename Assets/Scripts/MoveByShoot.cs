@@ -47,13 +47,12 @@ public class MoveByShoot : MonoBehaviour
         float recoilMultiplier = 2f;
 
         Vector2 recoilForce2 = -shootDirection * recoilForce * recoilMultiplier;
-        // Устанавливаем новую скорость для Rigidbody персонажа
         rb.velocity = recoilForce2;
     }
 
     public void DisableMovement()
     {
-        rb.velocity = Vector2.zero; // Обнуляем скорость
+        rb.velocity = Vector2.zero; 
     }
 
 }

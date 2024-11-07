@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class OpenDoorWithKey : MonoBehaviour
 {
-    public GameObject openDoorPrefab; // Префаб открытой двери
+    public GameObject openDoorPrefab;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player")) // Проверяем, что столкновение с игроком
+        if (collision.gameObject.CompareTag("Player")) 
         {
             Player player = collision.gameObject.GetComponent<Player>();
-            if (player != null && player.hasKey) // Проверяем наличие ключа у игрока
+            if (player != null && player.hasKey) 
             {
-                OpenDoor(); // Метод для открытия двери
+                OpenDoor(); 
             }
         }
     }
@@ -21,6 +21,6 @@ public class OpenDoorWithKey : MonoBehaviour
     private void OpenDoor()
     {
         Instantiate(openDoorPrefab, transform.position, transform.rotation);
-        Destroy(gameObject); // Удаляем закрытую дверь
+        Destroy(gameObject); 
     }
 }

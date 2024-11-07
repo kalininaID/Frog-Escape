@@ -165,6 +165,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -682,7 +695,31 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Medieval_props_free_0: 4313048802726774733
+      Medieval_props_free_1: 2577445799061397170
+      Medieval_props_free_10: 3479925710472347134
+      Medieval_props_free_11: 7308295258702165839
+      Medieval_props_free_12: 2556507076866936626
+      Medieval_props_free_13: -4315182520464688889
+      Medieval_props_free_14: -9152039242599814467
+      Medieval_props_free_15: 1541864360823203410
+      Medieval_props_free_16: 1168611356105612364
+      Medieval_props_free_17: 1318005114259541713
+      Medieval_props_free_18: 618854683273403901
+      Medieval_props_free_19: 8006092261696603729
+      Medieval_props_free_2: 4189539357883830659
+      Medieval_props_free_20: 7903591455180166742
+      Medieval_props_free_21: 5420801542956283670
+      Medieval_props_free_22: -537463380905537990
+      Medieval_props_free_23: -6922214013583640508
+      Medieval_props_free_3: -7264892730646358919
+      Medieval_props_free_4: -8533260949941840498
+      Medieval_props_free_5: 5473574461800414514
+      Medieval_props_free_6: -8727774171808914547
+      Medieval_props_free_7: -6837667464700584267
+      Medieval_props_free_8: 5993361787621959172
+      Medieval_props_free_9: -1165558898394421933
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
